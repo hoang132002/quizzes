@@ -3,7 +3,6 @@ import { ConfigService } from '@nestjs/config';
 import { type TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { isNil } from 'lodash';
 import { SnakeNamingStrategy } from 'src/common/snake-naming.strategy';
-import { UserSubscriber } from 'src/common/entity-subscribers/user-subscriber';
 
 @Injectable()
 export class ApiConfigService {
@@ -74,7 +73,6 @@ export class ApiConfigService {
       username: this.getString('DB_USERNAME'),
       password: this.getString('DB_PASSWORD'),
       database: this.getString('DB_DATABASE'),
-      subscribers: [UserSubscriber],
       synchronize: true,
       autoLoadEntities: true,
       migrationsRun: false,
