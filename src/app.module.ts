@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiConfigService } from './shared/services/api-config.service';
 import { SharedModule } from './shared/shared.module';
+import { QuizModule } from './quiz/quiz.module';
 
 @Module({
   imports: [
@@ -20,6 +21,8 @@ import { SharedModule } from './shared/shared.module';
         configService.postgresConfig,
       inject: [ApiConfigService],
     }),
+
+    QuizModule,
   ],
   controllers: [AppController],
   providers: [AppService],
