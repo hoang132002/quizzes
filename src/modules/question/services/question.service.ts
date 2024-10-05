@@ -9,7 +9,9 @@ export class QuestionService{
       ) {}
 
     async getQuestion(id:string){
+        console.log('???',{id})
         const question =await  this.questionRepository.findQuestion(id)
+        console.log('???',{question})
         if(!question) throw new NotFoundException('not found')
         const result = new QuestionDto(question)
         return result
