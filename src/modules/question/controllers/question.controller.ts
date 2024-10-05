@@ -8,8 +8,7 @@ export class QuestionController {
   ) {}
 
   @Get('/:id')
-   async getQuestion(@Param() id:string) {
-    console.log('qq',{id})
+   async getQuestion(@Param('id') id:string) {
       return this.questionService.getQuestion(id);  
   }}
 
