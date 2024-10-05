@@ -20,7 +20,7 @@ export class QuestionEntity {
 
   @ManyToOne(() => QuizEntity, (quiz) => quiz.questions)
   quiz: QuizEntity;
-
+  
   @OneToOne(() => AnswerEntity, (answer) => answer.question)
   @JoinColumn()
   answer : AnswerEntity;

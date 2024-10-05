@@ -10,4 +10,10 @@ export class QuestionRepository extends Repository<QuestionEntity> {
   async findQuestion(id: string) {
     return this.findOne({ where: { id: Equal(id) } });
   }
+
+  async createQuestion(content)
+  {
+    const question =  this.create({ content})
+    return this.save(question)
+  }
 }
