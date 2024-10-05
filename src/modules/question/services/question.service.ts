@@ -24,7 +24,15 @@ export class QuestionService {
        
     }
 
-    updateQuestion(){
-
+    async updateQuestion(updateQuestion){
+        const question = await this.questionRepository.findQuestion(updateQuestion.questionId);
+        if (!question) throw new NotFoundException('not found');
+        return this.questionRepository.updateQuestion(question, updateQuestion)
     }
+
+    deleteQuestion(id){
+        return this.questionRepository.deleteQuestion(id)
+    }
+
+
 }

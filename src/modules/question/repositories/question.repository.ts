@@ -16,4 +16,14 @@ export class QuestionRepository extends Repository<QuestionEntity> {
     const question =  this.create({ content})
     return this.save(question)
   }
+
+  updateQuestion(question, updateQuestion){
+    question.content = updateQuestion.content
+    return this.save(question)
+  }
+
+  deleteQuestion(id)
+  {
+    return this.softDelete(id)
+  }
 }

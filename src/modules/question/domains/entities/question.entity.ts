@@ -8,6 +8,7 @@ import {
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
+  DeleteDateColumn
 } from 'typeorm';
 
 @Entity({ name: 'question' })
@@ -15,12 +16,15 @@ export class QuestionEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @DeleteDateColumn()
+  deletedAt:Date 
+
   @Column()
   content: string;
 
   @ManyToOne(() => QuizEntity, (quiz) => quiz.questions)
   quiz: QuizEntity;
-  
+
   @OneToOne(() => AnswerEntity, (answer) => answer.question)
   @JoinColumn()
   answer : AnswerEntity;
