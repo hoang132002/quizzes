@@ -1,4 +1,4 @@
-import { AnswerDto } from 'src/modules/answer/domains/dtos/answer.dto';
+import { AnswerDto } from 'src/modules/answer/domains/dtos/response/answer.dto';
 import { QuizDto } from 'src/modules/quiz/domains/dtos/quiz.dto';
 
 export class UpdateQuestionDto {

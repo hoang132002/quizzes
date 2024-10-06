@@ -2,6 +2,7 @@ import { QuestionEntity } from 'src/modules/question/domains/entities/question.e
 import { UserEntity } from 'src/modules/user/domains/entities/user.entity';
 import {
   Column,
+  DeleteDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -17,6 +18,9 @@ export class AnswerEntity {
 
   @Column()
   content: string;
+
+  @DeleteDateColumn()
+  deletedAt:Date 
 
   @OneToOne(() => QuestionEntity, (question) => question.answer)
   @JoinColumn()

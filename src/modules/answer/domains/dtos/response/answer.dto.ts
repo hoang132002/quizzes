@@ -11,4 +11,10 @@ export class AnswerDto {
   question: QuestionDto;
 
   user: UserDto;
+
+  constructor(entity){
+    this.id=entity.id,
+    this.content=entity.content
+    // this.answer=entity.answer
+  }
 }
