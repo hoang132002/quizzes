@@ -14,9 +14,12 @@ export class QuizEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column({nullable:true})
+  title: string;
+
   @OneToMany(() => QuestionEntity, (question) => question.quiz)
   questions: QuestionEntity[];
 
   @OneToMany(() => SubmissionEntity, (submission) => submission.quiz)
-  submissions: QuestionEntity[];
+  submissions: SubmissionEntity[];
 }

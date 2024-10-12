@@ -8,6 +8,7 @@ import { ApiConfigService } from './shared/services/api-config.service';
 import { SharedModule } from './shared/shared.module';
 import { QuestionModule } from './modules/question/question.module';
 import { AnswerModule } from './modules/answer/answer.module';
+import { QuizModule } from './modules/quiz/quiz.module';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { AnswerModule } from './modules/answer/answer.module';
       inject: [ApiConfigService],
     }),
     QuestionModule
-    ,AnswerModule
+    ,AnswerModule , QuizModule
   ],
   controllers: [AppController],
   providers: [AppService],
