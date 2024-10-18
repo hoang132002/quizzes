@@ -1,4 +1,4 @@
-import { QuestionEntity } from 'src/modules/question/domains/entities/question.entity';
+import { QuestionEntity } from 'src/modules/quiz/domains/entities/question.entity';
 import { SubmissionEntity } from 'src/modules/submission/domains/entities/submission.entity';
 import {
   Column,

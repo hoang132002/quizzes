@@ -1,4 +1,4 @@
-import { AnswerEntity } from 'src/modules/answer/domains/entities/answer.entity';
+import { AnswerEntity } from 'src/modules/submission/domains/entities/answer.entity';
 import { SubmissionEntity } from 'src/modules/submission/domains/entities/submission.entity';
 import {
   Column,

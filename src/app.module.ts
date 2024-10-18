@@ -6,8 +6,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiConfigService } from './shared/services/api-config.service';
 import { SharedModule } from './shared/shared.module';
-import { QuestionModule } from './modules/question/question.module';
-import { AnswerModule } from './modules/answer/answer.module';
 import { QuizModule } from './modules/quiz/quiz.module';
 
 @Module({
@@ -22,9 +20,8 @@ import { QuizModule } from './modules/quiz/quiz.module';
       useFactory: (configService: ApiConfigService) =>
         configService.postgresConfig,
       inject: [ApiConfigService],
-    }),
-    QuestionModule
-    ,AnswerModule , QuizModule
+    })
+     , QuizModule
   ],
   controllers: [AppController],
   providers: [AppService],
