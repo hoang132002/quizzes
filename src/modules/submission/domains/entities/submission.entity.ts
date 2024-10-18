@@ -8,6 +8,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { AnswerEntity } from './answer.entity';
 
 @Entity({ name: 'submission' })
 export class SubmissionEntity {
@@ -18,5 +19,8 @@ export class SubmissionEntity {
   user: UserEntity;
 
   @ManyToOne(() => QuizEntity, (quiz) => quiz.submissions)
-  quiz: UserEntity;
+  quiz: QuizEntity;
+
+  @OneToMany(() =>AnswerEntity,(answer) => answer.submission)
+  answers: AnswerEntity[];
 }

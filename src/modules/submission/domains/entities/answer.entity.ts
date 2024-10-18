@@ -10,6 +10,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { SubmissionEntity } from './submission.entity';
 
 @Entity({ name: 'answer' })
 export class AnswerEntity {
@@ -28,4 +29,8 @@ export class AnswerEntity {
 
   @ManyToOne(() => UserEntity, (user) => user.answers)
   user: UserEntity;
+
+  @ManyToOne(() => SubmissionEntity, (submission) => submission.answers )
+  submission: SubmissionEntity;
+
 }
