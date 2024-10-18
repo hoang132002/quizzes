@@ -1,5 +1,5 @@
-import { QuestionDto } from 'src/modules/question/domains/dtos/response/question.dto';
-import { QuestionEntity } from 'src/modules/question/domains/entities/question.entity';
+import { QuestionDto } from 'src/modules/quiz/domains/dtos/response/question.dto';
+import { QuestionEntity } from 'src/modules/quiz/domains/entities/question.entity';
 import { QuizEntity } from '../../entities/quiz.entity';
 
 export class QuizDto {

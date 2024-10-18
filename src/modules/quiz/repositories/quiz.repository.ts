@@ -2,7 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { QuizEntity } from "../domains/entities/quiz.entity";
 import { Repository, Equal, DataSource } from 'typeorm';
 import { CreateQuiz } from "../domains/dtos/request/create-quiz.dto";
-import { QuestionEntity } from "src/modules/question/domains/entities/question.entity";
+import { QuestionEntity } from "src/modules/quiz/domains/entities/question.entity";
+import { UpdateQuiz } from "../domains/dtos/request/update-quiz.dto";
 
 @Injectable()
 export class QuizRepository extends Repository<QuizEntity> {
@@ -19,6 +20,12 @@ export class QuizRepository extends Repository<QuizEntity> {
         const quiz = this.create()
         quiz.title = createQuiz.title
         quiz.questions = questions
+        return this.save(quiz)
+    }
+
+    updateQuiz(quiz: QuizEntity, updateQuiz : UpdateQuiz , questions : QuestionEntity[]){
+        quiz.questions = questions
+        quiz.title = updateQuiz.title
         return this.save(quiz)
     }
 }
