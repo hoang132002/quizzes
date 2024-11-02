@@ -5,6 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Equal } from 'typeorm';
 import { QuizService } from 'src/modules/quiz/services/quiz.service';
 import { UpdateQuestionDto } from '../domains/dtos/request/update-question.dto';
+import { CreateQuestionDto } from '../domains/dtos/request/create-question.dto';
 
 @Injectable()
 export class QuestionService {
@@ -19,7 +20,7 @@ export class QuestionService {
         return result;
     }
 
-    async createQuestion(createQuestionDto) {
+    async createQuestion(createQuestionDto : CreateQuestionDto) {
         return this.questionRepository.createQuestion(createQuestionDto )
     }
 
