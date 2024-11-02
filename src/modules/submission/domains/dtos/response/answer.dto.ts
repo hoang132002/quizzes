@@ -12,6 +12,8 @@ export class AnswerDto {
 
   user: UserDto;
 
+  submissionId : string;
+
   constructor(entity){
     this.id=entity.id,
     this.content=entity.content

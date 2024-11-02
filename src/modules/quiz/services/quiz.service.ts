@@ -23,6 +23,13 @@ export class QuizService {
 
     }
 
+    async getQuizEntity(id: string): Promise<QuizEntity> {
+        const quiz = await this.quizRepository.findQuiz(id);
+        if (!quiz) throw new NotFoundException('quiz not found');
+        return quiz;
+
+    }
+
     async createQuiz(createQuiz: CreateQuiz) {
         const newQuestions =await Promise.all(createQuiz.questions.map(async (item) => await this.questionService.createQuestion(item)))
         const quiz = await this.quizRepository.createQuiz(createQuiz, newQuestions);
@@ -38,7 +45,7 @@ export class QuizService {
     //     {
     //         // const test = updateQuiz.questions[i].questionId
     //         // this.questionService.getQuestion(updateQuiz.questions[i].questionId);
-    //         const result = await this.questionService.updateQuestion(updateQuiz.questions[i])
+    //         const result =  await this.questionService.updateQuestion(updateQuiz.questions[i])
     //         updatedQuestion.push(result)
     //     }
     //     this.quizRepository.updateQuiz(quiz, updateQuiz , updatedQuestion )
