@@ -12,7 +12,8 @@ import { QuestionEntity } from "../domains/entities/question.entity";
 export class QuizService {
     constructor(
         private readonly quizRepository: QuizRepository,
-        private readonly questionService: QuestionService
+        private readonly questionService: QuestionService,
+       
     ) { }
 
     async getQuiz(id: string): Promise<QuizDto> {
@@ -58,6 +59,14 @@ export class QuizService {
         const updateQuestions =await Promise.all(updateQuiz.questions.map(async (item) => await this.questionService.updateQuestion(item)))
         const quiz = await this.quizRepository.updateQuiz(idQuiz ,updateQuiz, updateQuestions);
         return new QuizDto(quiz);
+
+    }
+
+
+
+    async deleteQuiz( id : string){
+        const quiz = await this.getQuizEntity(id);
+        return this.quizRepository.deleteQuiz(quiz);
 
     }
 }

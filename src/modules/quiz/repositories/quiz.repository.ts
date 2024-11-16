@@ -28,4 +28,8 @@ export class QuizRepository extends Repository<QuizEntity> {
         quiz.title = updateQuiz.title
         return this.save(quiz)
     }
+
+    deleteQuiz(quiz : QuizEntity){
+        return this.softDelete(quiz)
+    }
 }

@@ -9,11 +9,12 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { AnswerEntity } from './answer.entity';
+import { BaseEntity } from 'src/common/domain/base.entity';
 
 @Entity({ name: 'submission' })
-export class SubmissionEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class SubmissionEntity extends BaseEntity {
+  // @PrimaryGeneratedColumn('uuid')
+  // id: string;
 
   @ManyToOne(() => UserEntity, (user) => user.submissions)
   user: UserEntity;

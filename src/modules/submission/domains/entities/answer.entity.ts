@@ -11,11 +11,12 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { SubmissionEntity } from './submission.entity';
+import { BaseEntity } from 'src/common/domain/base.entity';
 
 @Entity({ name: 'answer' })
-export class AnswerEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class AnswerEntity extends BaseEntity {
+  // @PrimaryGeneratedColumn('uuid')
+  // id: string;
 
   @Column()
   content: string;

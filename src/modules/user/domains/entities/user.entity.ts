@@ -1,3 +1,4 @@
+import { BaseEntity } from 'src/common/domain/base.entity';
 import { AnswerEntity } from 'src/modules/submission/domains/entities/answer.entity';
 import { SubmissionEntity } from 'src/modules/submission/domains/entities/submission.entity';
 import {
@@ -10,9 +11,9 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'user' })
-export class UserEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class UserEntity  extends BaseEntity {
+  // @PrimaryGeneratedColumn('uuid')
+  // id: string;
 
   @Column()
   name: string;

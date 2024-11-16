@@ -10,11 +10,12 @@ import {
   PrimaryGeneratedColumn,
   DeleteDateColumn
 } from 'typeorm';
+import { BaseEntity } from 'src/common/domain/base.entity';
 
 @Entity({ name: 'question' })
-export class QuestionEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class QuestionEntity extends BaseEntity {
+  // @PrimaryGeneratedColumn('uuid')
+  // id: string;
 
   @DeleteDateColumn()
   deletedAt:Date 

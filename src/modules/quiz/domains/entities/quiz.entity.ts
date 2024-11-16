@@ -1,3 +1,4 @@
+import { BaseEntity } from 'src/common/domain/base.entity';
 import { QuestionEntity } from 'src/modules/quiz/domains/entities/question.entity';
 import { SubmissionEntity } from 'src/modules/submission/domains/entities/submission.entity';
 import {
@@ -10,9 +11,9 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'quiz' })
-export class QuizEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class QuizEntity extends BaseEntity {
+  // @PrimaryGeneratedColumn('uuid')
+  // id: string;
 
   @Column({nullable:true})
   title: string;
@@ -22,4 +23,5 @@ export class QuizEntity {
 
   @OneToMany(() => SubmissionEntity, (submission) => submission.quiz)
   submissions: SubmissionEntity[];
+
 }
