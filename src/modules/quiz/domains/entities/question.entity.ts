@@ -20,7 +20,7 @@ export class QuestionEntity extends BaseEntity {
   @DeleteDateColumn()
   deletedAt:Date 
 
-  @Column()
+  @Column({nullable:true})
   content: string;
 
   @ManyToOne(() => QuizEntity, (quiz) => quiz.questions)

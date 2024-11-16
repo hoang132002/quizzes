@@ -6,18 +6,26 @@ import { Equal } from 'typeorm';
 import { QuizService } from 'src/modules/quiz/services/quiz.service';
 import { UpdateQuestionDto } from '../domains/dtos/request/update-question.dto';
 import { CreateQuestionDto } from '../domains/dtos/request/create-question.dto';
+import { QuizEntity } from '../domains/entities/quiz.entity';
+import { QuestionEntity } from '../domains/entities/question.entity';
 
 @Injectable()
 export class QuestionService {
     constructor(
         private readonly questionRepository: QuestionRepository,
-    ) { }
+        
+    ){}
 
     async getQuestion(id: string) {
+    
         const question = await this.questionRepository.findQuestion(id);
         if (!question) throw new NotFoundException('not found');
         const result = new QuestionDto(question);
         return result;
+    }
+
+    async getQuestionsByQuizId(quizEntity : QuizEntity) : Promise<QuestionEntity[]> {
+        return await this.questionRepository.findAllQuestionByQuizId(quizEntity)
     }
 
     async createQuestion(createQuestionDto : CreateQuestionDto) {
@@ -30,7 +38,7 @@ export class QuestionService {
         return this.questionRepository.updateQuestion(question, updateQuestion)
     }
 
-    deleteQuestion(id){
+    deleteQuestion(id : string){
         return this.questionRepository.deleteQuestion(id)
     }
 

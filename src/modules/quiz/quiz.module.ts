@@ -12,6 +12,6 @@ import { QuestionEntity } from "./domains/entities/question.entity";
     imports: [TypeOrmModule.forFeature([QuizEntity,QuestionEntity])],
     controllers: [QuizController],
     providers: [QuizRepository, QuizService, QuestionRepository, QuestionService ],
-    exports: [QuizService ,QuestionService],
+    exports: [QuizService ,QuestionService, QuestionRepository],
   })
-  export class QuizModule {}
+  export class QuizModule  {}

@@ -25,7 +25,7 @@ import { JwtModule } from '@nestjs/jwt';
         configService.postgresConfig,
       inject: [ApiConfigService],
     })
-     , QuizModule , SubmissionModule ,UserModule ,AuthModule ,JwtModule
+     , QuizModule , SubmissionModule ,UserModule ,AuthModule ,JwtModule ,
   ],
   controllers: [AppController],
   providers: [AppService],

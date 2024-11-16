@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from "@nestjs/common";
 import { QuizService } from "../services/quiz.service";
 import { CreateQuiz } from "../domains/dtos/request/create-quiz.dto";
 import { UpdateQuiz } from "../domains/dtos/request/update-quiz.dto";
@@ -26,6 +26,14 @@ createQuiz(@Body() createQuiz : CreateQuiz){
 @UseGuards(JwtAuthGuard)
 @Patch()
 updateQuiz(@Body() updateQuiz : UpdateQuiz){
-  return this.quizService.updateQuiz(updateQuiz);
+  console.log("?????", updateQuiz)
+  return this.quizService.updateQuiz(updateQuiz)
 }
+
+@UseGuards(JwtAuthGuard)
+@Delete()
+deletedQuiz(id : string) {
+  return this.quizService.deleteQuiz(id)
+}
+
 }

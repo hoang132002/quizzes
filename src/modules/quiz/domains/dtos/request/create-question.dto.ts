@@ -9,5 +9,11 @@ export class CreateQuestionDto {
 
   // answer : AnswerDto;
 
+  constructor(content : string)
+  {
+    this.content = content;
+
+  }
+
   }
 
