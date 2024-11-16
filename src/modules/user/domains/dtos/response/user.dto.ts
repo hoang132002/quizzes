@@ -6,8 +6,11 @@ export class UserDto {
 
   name: string;
 
+  userName: string;
+
   constructor(user : UserEntity){
     this.id = user?.id
     this.name = user?.name
+    this.userName = user?.username
 }}
 

@@ -8,6 +8,7 @@ import { AnswerRepository } from "../repositories/answer.repository";
 import { AnswerService } from "./answer.service";
 import { QuizService } from "src/modules/quiz/services/quiz.service";
 import { UserService } from "src/modules/user/services/user.service";
+import { UserResponse } from "src/modules/auth/domains/dtos/response/user.response.dto";
 
 @Injectable()
 export class SubmissionService {
@@ -27,9 +28,9 @@ export class SubmissionService {
 
     }
 
-    async createSubmission(createSubmission: CreateSubmissionDto) {
+    async createSubmission(createSubmission: CreateSubmissionDto, user: UserResponse) {
         const quizEntity = await this.quizService.getQuizEntity(createSubmission.quizId)
-        const userEntity = await this.userService.getUserEntity(createSubmission.userId)
+        const userEntity = await this.userService.getUserEntity(user.userId)
         const newAnswer =await Promise.all(createSubmission.answers.map(async (item) => await this.answerService.createAnswer(item)))
         const submission = await this.submissionRepository.createSubmission(createSubmission, newAnswer , quizEntity , userEntity);
         return new SubmissionDto(submission);

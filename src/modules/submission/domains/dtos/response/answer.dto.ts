@@ -1,6 +1,6 @@
 import { QuestionDto } from 'src/modules/quiz/domains/dtos/response/question.dto';
 import { QuestionEntity } from 'src/modules/quiz/domains/entities/question.entity';
-import { UserDto } from 'src/modules/user/domains/dtos/repose/user.dto';
+import { UserDto } from 'src/modules/user/domains/dtos/response/user.dto';
 import { UserEntity } from 'src/modules/user/domains/entities/user.entity';
 
 export class AnswerDto {

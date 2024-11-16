@@ -4,7 +4,7 @@ import { UserController } from "./controllers/user.controller";
 import { UserService } from "./services/user.service";
 import { UserRepository } from "./repositories/user.repository";
 import { Module } from "@nestjs/common";
-import { UserDto } from "./domains/dtos/repose/user.dto";
+import { UserDto } from "./domains/dtos/response/user.dto";
 
 
 

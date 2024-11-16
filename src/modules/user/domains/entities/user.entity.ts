@@ -17,6 +17,12 @@ export class UserEntity {
   @Column()
   name: string;
 
+  @Column({nullable: true})
+  password: string;
+
+  @Column({nullable: true})
+  username : string;
+
   @OneToMany(() => AnswerEntity, (answer) => answer.user)
   answers: AnswerEntity[];
 
